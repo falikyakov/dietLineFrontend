@@ -12,6 +12,10 @@
 6. figure out email reset await issue with signup submitUser function
 7. issue: weekOf (dailyInsert & DailyPlan) doesn't reset if date is changed to that which doesn't have a weekOf
 8. new pics for home.js-react slider
+9. in view menu, set up possibility for descending table of all menus
+10. in view menu, fix cannot map undefined
+
+**in package-lock.json, changed darwin to win32**
 
 
 https://fathomless-sea-63464.herokuapp.com/
