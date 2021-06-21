@@ -7,12 +7,11 @@
   const bmi = "https://www.calculatestuff.com/health/bmi-calculator?units=metric&height=170&weight=87"
 
 ******to do 20/6/21******
-3. work out the .env issues
+
 4. port of react app on heroku
-5. port of mongoDB app on heroku (how will react/axios know which port to connect to?)
 6. figure out email reset await issue with signup submitUser function
 7. issue: weekOf (dailyInsert & DailyPlan) doesn't reset if date is changed to that which doesn't have a weekOf
-
+8. new pics for home.js-react slider
 
 
 https://fathomless-sea-63464.herokuapp.com/
