@@ -1,0 +1,37 @@
+   <Carousel.Caption>
+          <h3>First Demo </h3>
+ </Carousel.Caption>
+
+
+
+  const bmi = "https://www.calculatestuff.com/health/bmi-calculator?units=metric&height=170&weight=87"
+
+******to do 20/6/21******
+3. work out the .env issues
+4. port of react app on heroku
+5. port of mongoDB app on heroku (how will react/axios know which port to connect to?)
+6. figure out email reset await issue with signup submitUser function
+7. issue: weekOf (dailyInsert & DailyPlan) doesn't reset if date is changed to that which doesn't have a weekOf
+
+
+
+https://fathomless-sea-63464.herokuapp.com/
+
+
+Your public key has been saved in .ssh.pub.
+The key fingerprint is:
+SHA256:SOJGNN64pg/r0jXISK/LmbYiYr/DTvePE7NaBem4YFk yanky@DESKTOP-5SIR5IV
+The key's randomart image is:
++---[RSA 2048]----+
+|    o            |
+|   o +  .        |
+|    =Eoo         |
+| . oo+o..        |
+|.o.==...S.       |
+|. +=+ .o.        |
+| .=o + .+        |
+|*+=*. oo.        |
+|*OB++..oo.       |
++----[SHA256]-----+
+
+
