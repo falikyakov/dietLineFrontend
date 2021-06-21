@@ -26,8 +26,8 @@ const WelcomeUser = () => {
                 <Row style={{ margin: "10px" }}>
                     <WelcomeCard title="Start a New Diet Plan" secondary="Design a plan that's personalized just for you!" button="Start now" link="/newPlan" />
                     <WelcomeCard title="See Your Current Menu Plan" secondary="View your daily menu plans that you have set up" button="Current Plan" link="/menuView" />
-                    <WelcomeCard title="Weekly Stats" secondary="See your weekly progress" button="Weekly Stats" link="/dash" />
-                    <WelcomeCard title="Personal Info" secondary="View Your Personal Information" button="Personal Information" link="/profile" />
+                    <WelcomeCard title="Create New Daily Menu" secondary="Help yourself reach your goal by setting a menu for a specific day. " button="Daily Menu" link="/dailyPlan" />
+                    <WelcomeCard title="Personal Info" secondary="View Your Personal Information" button="Personal Information" link="/dash" />
                     {/*<WelcomeCard title="Informational Articles" secondary="View Articles Geared Specially for You" button="Articles" link="/articles" />*/}
                 </Row>
             </div>
