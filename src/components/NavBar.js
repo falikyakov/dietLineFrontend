@@ -27,7 +27,7 @@ const NavBar = () => {
                         <Link to="/checkUser/dash" className="nav-item nav-link">Profile</Link>
                         <Link to="/checkUser/newPlan" className="nav-item nav-link">New Diet Plan</Link>
                         <Link to="/checkUser/dailyPlan" className="nav-item nav-link " tabIndex="-1">New Daily Menu</Link>
-                        <Link to="/checkUser/dailyInsert" className="nav-item nav-link " tabIndex="-1">Daily Insert</Link>
+                        <Link to="/checkUser/dailyInsert" className="nav-item nav-link " tabIndex="-1">Daily Input</Link>
                     </div>
 
                     <div className="navbar-nav ml-auto" onClick={refreshPage}>

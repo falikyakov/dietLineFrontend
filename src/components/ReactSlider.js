@@ -26,7 +26,7 @@ const ReactSlider = () => {
                         <center>
                         <img style={{ 'height': "400px", width: "700px" }}
                             className="d-block w-100"
-                                src="/images/Excercise-Quote.jpg" />
+                                src="/images/miles.jpg" />
                         </center>   
                     </Carousel.Item  >
                     <Carousel.Item style={{ 'height': "400px", width: "700px"}}>

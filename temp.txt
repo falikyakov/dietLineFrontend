@@ -10,7 +10,6 @@ dietline
 
 ******to do 20/6/21******
 
-4. port of react app on heroku
 6. figure out email reset await issue with signup submitUser function
 7. issue: weekOf (dailyInsert & DailyPlan) doesn't reset if date is changed to that which doesn't have a weekOf
 8. new pics for home.js-react slider

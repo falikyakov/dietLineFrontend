@@ -65,9 +65,9 @@ const Home = (props) => {
                             <Card.Img variant="top" src="images/meal1.jpg" style={{ height: "240px", maxWidth: "330px" }} />
                             <Card.Body className="d-flex flex-column" style={{ height: "200px", maxWidth: "330px" }} >
                                 <div className="d-flex mb-2 justify-content-between">
-                                    <Card.Title className="mb-0 font-weight-bold">Headlines</Card.Title>
+                                    <Card.Title className="mb-0 font-weight-bold">Articles</Card.Title>
                                 </div>
-                                <Card.Text className="text-secondary">Browse through current health news headlines</Card.Text>
+                                <Card.Text className="text-secondary">Browse through current health news articles</Card.Text>
                                 <Button
                                     className="mt-auto font-weight-bold"
                                     variant="info"
@@ -81,15 +81,15 @@ const Home = (props) => {
                         <Card className="h-100 shadow-sm bg-white rounded" style={{ margin: "15px", border: "purple solid 1px" }}>
                             <Card.Body className="d-flex flex-column" style={{ height: "200px", maxWidth: "330px" }}>
                                 <div className="d-flex mb-2 justify-content-between">
-                                    <Card.Title className="mb-0 font-weight-bold">Health Tips</Card.Title>
+                                    <Card.Title className="mb-0 font-weight-bold">Browse Foods</Card.Title>
                                 </div>
-                                <Card.Text className="text-secondary">Give yourself a better chance at success with these proven health tips!</Card.Text>
+                                <Card.Text className="text-secondary">Browse through different available food options</Card.Text>
                                 <Button
                                     className="mt-auto font-weight-bold"
                                     variant="info"
                                     block
                                 >
-                                    <Link to={`/foods/${props.name}`} style={{ color: "white" }}>more</Link>
+                                    <Link to={`/newFoodCats`} style={{ color: "white" }}>more</Link>
                                 </Button>
                             </Card.Body>
                             <Card.Img variant="top" src="images/meal6.jpg" style={{ height: "240px", maxWidth: "330px" }} />
@@ -101,13 +101,13 @@ const Home = (props) => {
                                 <div className="d-flex mb-2 justify-content-between">
                                     <Card.Title className="mb-0 font-weight-bold">Recipes</Card.Title>
                                 </div>
-                                <Card.Text className="text-secondary">Enhance your dieting experience with these delicious, low-fat recipes</Card.Text>
+                                <Card.Text className="text-secondary">Browse through recipes based on your preferences</Card.Text>
                                 <Button
                                     className="mt-auto font-weight-bold"
                                     variant="info"
                                     block
                                 >
-                                    <Link to={`/foods/${props.name}`} style={{ color: "white" }}>more</Link>
+                                    <Link to={`/recipes`} style={{ color: "white" }}>more</Link>
                                 </Button>
                             </Card.Body>
                         </Card>

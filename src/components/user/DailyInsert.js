@@ -312,7 +312,7 @@ const DailyInsert = () => {
             <input type="date" name="date" onChange={changeDate} onMouseLeave={changeWeekOf} />
             </div><br />
             &nbsp; &nbsp; Please enter the amount you excersized (minutes): &nbsp; <input type="number" onChange={changeExcersizeMinutesDaily} />
-            <h1 className="display-4">Foods eaten:</h1><strong><hr /></strong>
+            <h1 className="display-4">Daily Food Intake:</h1><strong><hr /></strong>
            
            
             <fieldset style={{ border: "purple solid thin" }}>

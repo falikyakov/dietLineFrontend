@@ -33,7 +33,7 @@ const DailyPlan = () => {
         setExcersizeMinutesDaily(e.target.value);
     }
     const [date, setDate] = useState();
-    const [weekOf, setWeekOf] = useState("hahahah");
+    const [weekOf, setWeekOf] = useState();
 
     const changeDate = (e) => {
         setDate(e.target.value);
@@ -61,6 +61,11 @@ const DailyPlan = () => {
         if (weekOf == null) {
             alert("This date is not part of a weekly goal");
         }
+
+        userPlan.dailyPlanInput &&
+            userPlan.dailyPlanInput.map((plan) => {
+                console.log(plan.day.toLocaleString());
+            })
     }
 
     const [breakfastMainText, setbreakfastMainText] = useState("Main");
@@ -306,17 +311,18 @@ const DailyPlan = () => {
 
     return (
         <div>
+            {weekOf} - {date}
             <div style={{ border: "solid thin purple", width: "400px", marginLeft: "20px", paddingLeft: "10px" }}>
                 Which day is this plan for: &nbsp; &nbsp;
             <input type="date" name="date" onChange={changeDate} onMouseLeave={changeWeekOf} required />
             </div><br />
-          
+
             &nbsp; &nbsp; Amount you plan to excersize (minutes): &nbsp; <input type="number" onChange={changeExcersizeMinutesDaily} /><hr />
             <h1 className="display-4">Menu Plan:</h1><strong><hr /></strong>
-          
+
             &nbsp;<Link to="/newFoodCats"><big style={{ color: "purple" }}><strong><u> Browse Foods</u></strong></big></Link>
             <br /><br />
-         
+
             <fieldset style={{ border: "purple solid thin" }}>
                 <h1><u><strong>Breakfast:</strong></u></h1>
                 <table style={{ borderSpacing: "15px", borderCollapse: "separate" }}>

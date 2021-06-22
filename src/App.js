@@ -29,6 +29,7 @@ import WeeklyUpdate from './components/user/WeeklyUpdate';
 import ViewGoals from './components/user/ViewGoals';
 import CheckUser from './components/user/CheckUser';
 import ArticlePage from './components/Articles/ArticlePage';
+import RecipePage from './components/recipes/RecipePage';
 
 
 
@@ -63,6 +64,7 @@ function App() {
         <Route path="/viewGoals" component={ViewGoals} />
         <Route path="/checkUser/:page" component={CheckUser} />
         <Route path="/articles" component={ArticlePage} />
+        <Route path="/recipes" component={RecipePage} />
 
 
       </Router>

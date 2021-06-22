@@ -33,7 +33,6 @@ const MenuView = () => {
 
     const seeMenu = () => {
 
-        const num = userPlan.dailyPlanInput && userPlan.dailyPlanInput[0].breakfast.foods.length;
         const today = new Date();
         const shortMonth = today.getMonth();
         const shortDay = today.getDate();
@@ -57,11 +56,14 @@ const MenuView = () => {
                     })
                 }
             })
+        if (exMon == null) {
+            document.getElementById("noMenu").innerHTML="There is no menu for this date"
+        }
     }
   
     const seeDateMenu = (e) => {
 
-        const num = userPlan.dailyPlanInput && userPlan.dailyPlanInput[0].breakfast.foods.length;
+        setExMon(null);
         const today = new Date(mon);
         const shortMonth = today.getMonth();
         const shortDay = today.getDate();
@@ -74,7 +76,7 @@ const MenuView = () => {
                 const thisDay = newDate.getDate();
                 const thisDate = (thisMonth + 1) + " " + thisDay;
                 const newExMon = thisDate + " " + newDate.getFullYear();
-
+                
                 if (thisDate == shortDate) {
                     day.breakfast.foods.map((food) => {
                         setBkFoods(day.breakfast.foods);
@@ -86,19 +88,22 @@ const MenuView = () => {
                         setExMon(newExMon);
                     })
                 }
+                return;
             })
     }
 
     return (
         <div style={{ minHeight: "900px" }}>
             <center>
-                <button onClick={seeMenu}>View today's menu</button><br /><br />
+                <button onClick={seeMenu}>View today's menu</button>
+                <br /><br />
                 <button>View by date <input type="date" onChange={changeMon} /> <button onClick={seeDateMenu }>Enter</button></button><br /><br />
 
                 <table id="table" className="styled-table">
                     <thead>
+                        <tr id="noMenu"></tr>
                         <tr>
-                            <th colspan="3"><center>{ exMon}</center></th>
+                            <th colSpan="3"><center>{ exMon}</center></th>
                         </tr>
                         <tr>
                             <th>Breakfast</th>
