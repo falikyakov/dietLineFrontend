@@ -11,7 +11,6 @@ import WelcomeUser from './user/welcomeUser';
 const Home = (props) => {
 
     const [user, setUser] = useState({});
-    const [mommy, setMommy] = useState({});
 
     useEffect(async () => {
 
