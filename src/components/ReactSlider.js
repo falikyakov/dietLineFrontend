@@ -26,21 +26,28 @@ const ReactSlider = () => {
                         <center>
                         <img style={{ 'height': "400px", width: "700px" }}
                             className="d-block w-100"
-                                src="/images/quote7.jpg" />
+                                src="/images/Excercise-Quote.jpg" />
                         </center>   
                     </Carousel.Item  >
                     <Carousel.Item style={{ 'height': "400px", width: "700px"}}>
                         <center>
                         <img style={{ 'height': "400px", width: "700px" }}
                             className="d-block w-100"
-                                src="/images/quote6.jpg" />
+                                src="/images/gretzky.jpg" />
                         </center>
                     </Carousel.Item>
                     <Carousel.Item style={{ 'height': "400px", width: "700px"}}>
                         <center>
                         <img style={{ 'height': "400px", width: "700px" }}
                             className="d-block w-100"
-                                src="/images/quote3.jpg" />
+                                src="/images/fast.jpg" />
+                        </center>
+                    </Carousel.Item>
+                    <Carousel.Item style={{ 'height': "400px", width: "700px" }}>
+                        <center>
+                            <img style={{ 'height': "400px", width: "700px" }}
+                                className="d-block w-100"
+                                src="/images/jordan.jpg" />
                         </center>
                     </Carousel.Item>
                 </Carousel>

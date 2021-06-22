@@ -73,6 +73,7 @@ const MenuView = () => {
                 const thisMonth = newDate.getMonth();
                 const thisDay = newDate.getDate();
                 const thisDate = (thisMonth + 1) + " " + thisDay;
+                const newExMon = thisDate + " " + newDate.getFullYear();
 
                 if (thisDate == shortDate) {
                     day.breakfast.foods.map((food) => {
@@ -82,7 +83,7 @@ const MenuView = () => {
                         setBkFoodsAmount(day.breakfast.foodAmount);
                         setLnFoodsAmount(day.lunch.foodAmount);
                         setDnFoodsAmount(day.dinner.foodAmount);
-                        setExMon(thisDate);
+                        setExMon(newExMon);
                     })
                 }
             })
@@ -127,9 +128,7 @@ const MenuView = () => {
                                 </ul>
                             </td>
                         </tr>
-                        {exMon}
                     </thead>
-
                 </table>
             </center>
 
