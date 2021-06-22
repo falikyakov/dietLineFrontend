@@ -56,7 +56,6 @@ const Home = (props) => {
             <center>
                 <ReactSlider />
             </center>
-            <h1>YAY!!!</h1>
            <WelcomeUser />
             <br />
             <center>
