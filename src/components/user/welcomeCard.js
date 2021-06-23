@@ -12,16 +12,16 @@ const WelcomeCard = (props) => {
                     </div>
                     <Card.Text className="text-secondary">{props.secondary}</Card.Text>
                     <Button
-                        style={{backgroundColor:"lightgreen"}}
-                    className="mt-auto font-weight-bold"
-                    variant="success"
-                    block
-                >
-                        <Link to={props.link}> { props.button}</Link>
-                </Button>
-            </Card.Body>
+                        style={{ backgroundColor: "lightgreen" }}
+                        className="mt-auto font-weight-bold"
+                        variant="success"
+                        block
+                    >
+                        <Link to={props.link}> {props.button}</Link>
+                    </Button>
+                </Card.Body>
             </Card>
-            </div>
+        </div>
     )
 }
 

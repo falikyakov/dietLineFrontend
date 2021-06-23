@@ -106,11 +106,11 @@ html {
   font-family: sans-serif;
   min-width: 400px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 
 .styled-table thead tr {
-  background-color:#93cf08;
+  background-color: #93cf08;
   color: #370b5c;
   text-align: left;
 }
@@ -121,7 +121,7 @@ html {
 }
 
 .styled-table tbody tr {
-  background-color:burlywood;
+  background-color: burlywood;
   border-bottom: thin solid #dddddd;
 }
 
@@ -139,7 +139,6 @@ html {
   color: #009879;
 }
 
-
 /* style for profile table */
 .profile-table {
   border-collapse: collapse;
@@ -151,7 +150,7 @@ html {
 }
 
 .profile-table thead tr {
-  background-color:#0c6ea7b2;
+  background-color: #0c6ea7b2;
   color: #ffffff;
   text-align: left;
 }
@@ -162,7 +161,7 @@ html {
 }
 
 .profile-table tbody tr {
-  background-color:burlywood;
+  background-color: burlywood;
   border-bottom: thin solid #dddddd;
 }
 
@@ -274,9 +273,6 @@ html {
   display: none;
 }
 
-.foodCategory {
-}
-
 .foodCategory:hover .foodCategoryDropdown {
   display: block;
   position: absolute;
@@ -315,7 +311,7 @@ html {
 .foodCategoryDropdownItem:hover .subFoodsDropdown {
   position: absolute;
   display: block;
-  width:auto;
+  width: auto;
   margin-top: -40px;
   margin-left: 90px;
   background: rgb(71, 207, 241);
@@ -325,23 +321,49 @@ html {
   color: blue;
 }
 
-#pleaseWait{
+#pleaseWait {
   display: none;
 }
 
-#pleaseWaitVisible{
+#pleaseWaitVisible {
   display: block;
 }
 
-
 /* article */
-.article{
+.article {
   width: device-width;
   background-color: #cff0ea;
   margin: 50px;
-   padding: 8px;
+  padding: 8px;
 }
 
-.articleTitle{
+.articleTitle {
   background-color: #a1e2b7;
+}
+
+#updateWeightHidden {
+  display: none;
+}
+
+.updateWeight-control {
+  box-shadow: none;
+  border-color: rgb(39, 67, 228);
+}
+.updateWeight-control:focus {
+  border-color: #4aba70;
+}
+.updateWeight-form {
+  width: 350px;
+  margin: 0 auto;
+  padding: 30px 0;
+}
+.updateWeight-form form {
+  text-align: center;
+  color: #3a1515;
+  border-radius: 1px;
+  margin-bottom: 15px;
+  background: #fff;
+  border: 1px solid #f3f3f3;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  padding: 30px;
 }

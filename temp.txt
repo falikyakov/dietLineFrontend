@@ -10,6 +10,15 @@ dietline
 
 ******to do 20/6/21******
 
+
+1. Create weekly goal component and incorporate
+2. in home card, set Link to go on whole button, not just "more"
+3. in articles, "see more" should open new tab
+4. in newDietPlan, fix bottom line (maybe more)
+
+
+
+
 6. figure out email reset await issue with signup submitUser function
 7. issue: weekOf (dailyInsert & DailyPlan) doesn't reset if date is changed to that which doesn't have a weekOf
 8. new pics for home.js-react slider

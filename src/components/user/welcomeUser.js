@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Row } from 'react-bootstrap'
+import {Link} from 'react-router-dom'
 import InfoCard from './infoCard'
 import WelcomeCard from './welcomeCard'
 
@@ -13,6 +14,10 @@ const WelcomeUser = () => {
         setUser(user);
         console.log(user);
     }, [])
+
+
+ 
+
 
 
     if (!user) {

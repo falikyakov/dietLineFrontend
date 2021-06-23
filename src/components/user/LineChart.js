@@ -18,6 +18,15 @@ function LineChart() {
         setUserPlan(userPlan);
     }, [])
 
+    var weightArray = [];
+    var i = user.WeeklyWeight && user.WeeklyWeight.length;
+    var j = i - 8;
+    user.WeeklyWeight &&
+        user.WeeklyWeight.map((item, index) => {
+            if (index > j) {
+                return weightArray.push(item);
+            }
+        })
 
     const data = {
         labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4', 'Week 5', 'Week 6', 'Week 7'],
@@ -42,7 +51,7 @@ function LineChart() {
                 pointRadius: 1,
                 pointHitRadius: 10,
                 //feed info from user weight here
-                data: [101, 101.5, 98.7, 99.5, 98, 96.5, 97]
+                data: weightArray
             }
         ]
     };

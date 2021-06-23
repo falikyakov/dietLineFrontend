@@ -51,12 +51,14 @@ const Home = (props) => {
         }
     }, [])
 
+
+
     return (
         <div>
             <center>
                 <ReactSlider />
             </center>
-           <WelcomeUser />
+            <WelcomeUser />
             <br />
             <center>
                 <Container>

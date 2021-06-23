@@ -25,11 +25,11 @@ import DailyPlan from './components/user/DailyPlan';
 import CategoryDetails from './components/foods/CategoryDetails';
 import Tips from './components/HealthInfo/Tips';
 import userGraph2 from './components/user/userGraph2';
-import WeeklyUpdate from './components/user/WeeklyUpdate';
 import ViewGoals from './components/user/ViewGoals';
 import CheckUser from './components/user/CheckUser';
 import ArticlePage from './components/Articles/ArticlePage';
 import RecipePage from './components/recipes/RecipePage';
+import UpdateWeight from './components/user/UpdateWeight';
 
 
 
@@ -60,11 +60,11 @@ function App() {
         <Route path="/categoryDetails/:categoryName" component={CategoryDetails} />
         <Route path="/tips" component={Tips} />
         <Route path="/graph2" component={userGraph2} />
-        <Route path="/weeklyUpdate" component={WeeklyUpdate} />
         <Route path="/viewGoals" component={ViewGoals} />
         <Route path="/checkUser/:page" component={CheckUser} />
         <Route path="/articles" component={ArticlePage} />
         <Route path="/recipes" component={RecipePage} />
+        <Route path="/updateWeight" component={UpdateWeight} />
 
 
       </Router>

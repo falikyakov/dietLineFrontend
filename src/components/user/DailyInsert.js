@@ -5,7 +5,8 @@ import { FaChevronRight } from "react-icons/fa";
 import DailyInsertList from './DailyInsertList';
 import DailyInsertInput from './DailyInsertInput';
 import axios from 'axios';
-import {useHistory } from 'react-router-dom';
+import { Redirect, useHistory, Link } from 'react-router-dom';
+import UpdateWeight from './UpdateWeight';
 
 
 const DailyInsert = () => {
@@ -26,6 +27,12 @@ const DailyInsert = () => {
         setUserPlan(userPlan);
     }, [])
 
+
+    const [newWeight, setNewWeight] = useState();
+    const changeNewWeight = (e) => {
+        setNewWeight(e.target.value);
+    }
+    const [seeWeightForm, setSeeWeightForm] = useState(false);
 
 
     const [excersizeMinutesDaily, setExcersizeMinutesDaily] = useState();
@@ -57,7 +64,6 @@ const DailyInsert = () => {
 
                     if (newDate > dt1 && newDate < dt2) {
                         setWeekOf(dt1);
-                        alert("week of: " + weekOf.toLocaleString());
                     }
                 }
             })
@@ -252,6 +258,39 @@ const DailyInsert = () => {
     }
 
 
+    const DisplayNewWeightForm = () => {
+        setSeeWeightForm(true);
+    }
+    const HideUpdateWeight = () => {
+        document.getElementById('updateWeight').setAttribute("id", "pleaseWait");
+    }
+    const SubmitNewWeight = (e) => {
+        e.preventDefault();
+        
+        const weightConfirm = window.confirm("Are you sure?");
+        if (weightConfirm == false) {
+            return;
+        }
+
+        const info = {
+            userId: user._id,
+            newWeight: newWeight
+        }
+
+        axios.post("https://blooming-harbor-45317.herokuapp.com/router/db/DBinsert/insertNewWeight", info)
+            .then(
+                (response) => {
+                    console.log("SUCCESS: " + response.data);
+                }).
+            catch((error) => {
+                console.log("error: " + error);
+            }
+        );
+        history.push('/');
+    }
+
+
+
     const sendData = async (event) => {
         event.preventDefault();
 
@@ -306,15 +345,34 @@ const DailyInsert = () => {
 
     return (
         <div>
-            
+            <center>
+                <div id="updateWeight" className="updateWeight" style={{ backgroundColor: "lightPink", width: "480px", padding: "15px", border: "lightGreen 1px solid", borderRadius: "5px" }}>
+                    <h4>Would you like to update your weight?</h4><br />
+                    <button className="btn btn-default" style={{ backgroundColor: "wheat", minWidth: "100px", marginRight: "10px" }} onClick={DisplayNewWeightForm}> Yes</button>
+                    <button className="btn btn-default" style={{ backgroundColor: "wheat", minWidth: "100px", marginLeft: "10px" }} onClick={HideUpdateWeight} >No</button>
+                </div>
+            </center>
+            {
+                seeWeightForm &&
+                <div className="updateWeight-form">
+                    <form>
+                        <h4 className="modal-title">Enter new weight</h4><br />
+                        <div className="form-group">
+                            <input type="number" className="updateWeight-control" placeholder="New Weight" required="required" onChange={changeNewWeight} />
+                        </div>
+                        <input type="submit" className="btn btn-primary" value="Submit" onClick={SubmitNewWeight} />
+                    </form>
+                </div>
+            }
+            <br />
             <div style={{ border: "solid thin purple", width: "400px", marginLeft: "20px", paddingLeft: "10px" }}>
                 Enter date of details: &nbsp; &nbsp;
             <input type="date" name="date" onChange={changeDate} onMouseLeave={changeWeekOf} />
             </div><br />
             &nbsp; &nbsp; Please enter the amount you excersized (minutes): &nbsp; <input type="number" onChange={changeExcersizeMinutesDaily} />
             <h1 className="display-4">Daily Food Intake:</h1><strong><hr /></strong>
-           
-           
+
+
             <fieldset style={{ border: "purple solid thin" }}>
                 <h1><u><strong>Breakfast:</strong></u></h1>
                 <table style={{ borderSpacing: "15px", borderCollapse: "separate" }}>
@@ -333,19 +391,19 @@ const DailyInsert = () => {
                             <td>
                                 <button name="brkfstMain" id="brkfstMain" className="foodCategory btn btn-default" style={{ backgroundColor: "wheat", minWidth: "160px" }}>
                                     {breakfastMainText} &nbsp; <DailyInsertInput func={changeBreakfastMainGr} func2={setTotalBrCal} />
-                                    <DailyInsertList func={changebreakfastMainText} onMouseLeave={ setTotalBrCal}/>
+                                    <DailyInsertList func={changebreakfastMainText} onMouseLeave={setTotalBrCal} />
                                 </button>
                             </td>
                             <td>
                                 <button name="brkfstMain" id="brkfstMain" className="foodCategory btn btn-default" style={{ backgroundColor: "wheat", minWidth: "160px" }}>
                                     {breakfastSideText} &nbsp; <DailyInsertInput func={changeBreakfastSideGr} func2={setTotalBrCal} />
-                                    <DailyInsertList func={changebreakfastSideText} onMouseLeave={setTotalBrCal}/>
+                                    <DailyInsertList func={changebreakfastSideText} onMouseLeave={setTotalBrCal} />
                                 </button>
                             </td>
                             <td>
                                 <button name="brkfstMain" id="brkfstMain" className="foodCategory btn btn-default" style={{ backgroundColor: "wheat", minWidth: "160px" }}>
                                     {breakfastDrinkText} &nbsp; <DailyInsertInput func={changeBreakfastDrinkGr} func2={setTotalBrCal} />
-                                    <DailyInsertList func={changebreakfastDrinkText} onMouseLeave={setTotalBrCal}/>
+                                    <DailyInsertList func={changebreakfastDrinkText} onMouseLeave={setTotalBrCal} />
                                 </button>
                             </td>
                             <td>
@@ -382,25 +440,25 @@ const DailyInsert = () => {
                             <td>
                                 <button name="" id="" className="foodCategory btn btn-default" style={{ backgroundColor: "wheat", minWidth: "160px" }}>
                                     {lunchMainText} &nbsp;<DailyInsertInput func={changeLunchMainGr} func2={setTotalLnCal} />
-                                    <DailyInsertList func={changeLunchMain} onMouseLeave={setTotalLnCal}/>
+                                    <DailyInsertList func={changeLunchMain} onMouseLeave={setTotalLnCal} />
                                 </button>
                             </td>
                             <td>
                                 <button name="" id="" className="foodCategory btn btn-default" style={{ backgroundColor: "wheat", minWidth: "160px" }}>
                                     {lunchSideText} &nbsp; <DailyInsertInput func={changeLunchSideGr} func2={setTotalLnCal} />
-                                    <DailyInsertList func={changeLunchSide} onMouseLeave={setTotalLnCal}/>
+                                    <DailyInsertList func={changeLunchSide} onMouseLeave={setTotalLnCal} />
                                 </button>
                             </td>
                             <td>
                                 <button name="" id="" className="foodCategory btn btn-default" style={{ backgroundColor: "wheat", minWidth: "160px" }}>
                                     {lunchDrinkText} &nbsp; <DailyInsertInput func={changeLunchDrinkGr} func2={setTotalLnCal} />
-                                    <DailyInsertList func={changeLunchDrink} onMouseLeave={setTotalLnCal}/>
+                                    <DailyInsertList func={changeLunchDrink} onMouseLeave={setTotalLnCal} />
                                 </button>
                             </td>
                             <td>
                                 <button name="" id="" className="foodCategory btn btn-default" style={{ backgroundColor: "wheat", minWidth: "160px" }}>
                                     {lunchAdditivesText} &nbsp; <DailyInsertInput func={changeLunchAdditivesGr} func2={setTotalLnCal} />
-                                    <DailyInsertList func={changeLunchAdditives} onMouseLeave={setTotalLnCal}/>
+                                    <DailyInsertList func={changeLunchAdditives} onMouseLeave={setTotalLnCal} />
                                 </button>
                             </td>
                             <td>
@@ -431,13 +489,13 @@ const DailyInsert = () => {
                             <td>
                                 <button name="brkfstMain" id="brkfstMain" className="foodCategory btn btn-default" style={{ backgroundColor: "wheat", minWidth: "160px" }}>
                                     {dinnerMainText} &nbsp; <DailyInsertInput func={changeDinnerMainGr} func2={setTotalDnCal} />
-                                    <DailyInsertList func={changeDinnerMain} onMouseLeave={setTotalDnCal}/>
+                                    <DailyInsertList func={changeDinnerMain} onMouseLeave={setTotalDnCal} />
                                 </button>
                             </td>
                             <td>
                                 <button name="brkfstMain" id="brkfstMain" className="foodCategory btn btn-default" style={{ backgroundColor: "wheat", minWidth: "160px" }}>
                                     {dinnerSideText} &nbsp; <DailyInsertInput func={changeDinnerSideGr} func2={setTotalDnCal} />
-                                    <DailyInsertList func={changeDinnerSide} onMouseLeave={setTotalDnCal}/>
+                                    <DailyInsertList func={changeDinnerSide} onMouseLeave={setTotalDnCal} />
                                 </button>
                             </td>
                             <td>
@@ -465,21 +523,21 @@ const DailyInsert = () => {
 
             <center>
                 <h3>
-                    Please make sure you entered the date <br/> and the excersize minutes
+                    Please make sure you entered the date <br /> and the excersize minutes
                 </h3><br /><hr />
                 <h4><button type="submit" style={{ marginLeft: "20px", borderRadius: "9%", backgroundColor: "violet" }} onClick={sendData}>Submit</button></h4>
             </center>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
-            <br/>
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
             <br />
             <br />
         </div>
