@@ -1,5 +1,5 @@
 import React, { useState,useEffect } from 'react';
-import Recipe from './Recipe';
+import { Container, Row } from 'react-bootstrap';
 
 const RecipeList = ({ recipeData }) => {
 
@@ -10,10 +10,10 @@ const RecipeList = ({ recipeData }) => {
     
     const [bakingSteps, setBakingSteps] = useState();
 
-    const getBakingInstructions = (id) => {
+    const getBakingInstructions = () => {
       
           fetch(
-              `https://api.spoonacular.com/recipes/${id}/analyzedInstructions?&apiKey=${process.env.REACT_APP_SPOONACULAR_APP}`
+              `https://api.spoonacular.com/recipes/${recipeId}/analyzedInstructions?&apiKey=${process.env.REACT_APP_SPOONACULAR_APP}`
           )
               .then((response) => response.json())
               .then((data) => {
@@ -26,16 +26,15 @@ const RecipeList = ({ recipeData }) => {
   
 
     return (
-        <main>
-            <section className="ingredients">
-                <h1>Macros - {recipeId}</h1>
+        <Container className="recipeCard">
+            <Row>
                 {recipeData.map((recipe, index) => {
-                    return <ul key={index}>
-                        <h3>{recipe.title}</h3>
+                    return <div><ul className="ingredients" key={index}>
+                        <h2>{recipe.title}</h2>
                         <img src={recipe.image} alt="recipe" />
-                        {recipe.id}
+                        <h3>Ingredients</h3>
                         {recipe.usedIngredients.map((ing, index) => {
-                            return <li key={index}>
+                            return <li className="recipeLi" key={index}>
                                 {ing.original}
                             </li>
                         })}
@@ -44,11 +43,12 @@ const RecipeList = ({ recipeData }) => {
                                 {ing.original}
                             </li>
                         })}
-                        <button onMouseEnter={changeRecipeId} onClick={getBakingInstructions}>Baking Instructions</button>
-                    </ul>
+                        <br/>
+                        <button onMouseEnter={changeRecipeId} onClick={getBakingInstructions} value={recipe.id} className="mt-auto ingButton btn">Baking Instructions</button>
+                    </ul></div>
                 })}
-            </section>
-        </main>
+            </Row>
+        </Container>
     )
 }
 
