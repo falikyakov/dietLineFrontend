@@ -48,3 +48,4 @@ The key's randomart image is:
 +----[SHA256]-----+
 
 
+{/*https://api.spoonacular.com/recipes/632583/analyzedInstructions?apiKey=729d24307f3145138c298f4705ce8e3e*/}

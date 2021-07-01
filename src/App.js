@@ -30,6 +30,8 @@ import CheckUser from './components/user/CheckUser';
 import ArticlePage from './components/Articles/ArticlePage';
 import RecipePage from './components/recipes/RecipePage';
 import UpdateWeight from './components/user/UpdateWeight';
+import RecipeInstructions from './components/recipes/RecipeInstructions';
+
 
 
 
@@ -65,7 +67,8 @@ function App() {
         <Route path="/articles" component={ArticlePage} />
         <Route path="/recipes" component={RecipePage} />
         <Route path="/updateWeight" component={UpdateWeight} />
-
+        <Route path="/recipeInstructions/:id/:title" component={RecipeInstructions} />
+        
 
       </Router>
     </div>

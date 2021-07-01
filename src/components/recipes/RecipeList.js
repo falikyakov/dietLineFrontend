@@ -1,5 +1,6 @@
 import React, { useState,useEffect } from 'react';
 import { Container, Row } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const RecipeList = ({ recipeData }) => {
 
@@ -10,26 +11,26 @@ const RecipeList = ({ recipeData }) => {
     
     const [bakingSteps, setBakingSteps] = useState();
 
-    const getBakingInstructions = () => {
+//     const getBakingInstructions = () => {
       
-          fetch(
-              `https://api.spoonacular.com/recipes/${recipeId}/analyzedInstructions?&apiKey=${process.env.REACT_APP_SPOONACULAR_APP}`
-          )
-              .then((response) => response.json())
-              .then((data) => {
-                  setBakingSteps(data);
-                  console.log(data);
-              })
-            .catch(() => console.log("error"));
+//           fetch(
+//               `https://api.spoonacular.com/recipes/${recipeId}/analyzedInstructions?&apiKey=${process.env.REACT_APP_SPOONACULAR_APP}`
+//           )
+//               .then((response) => response.json())
+//               .then((data) => {
+//                   setBakingSteps(data);
+//                   console.log(data);
+//               })
+//             .catch(() => console.log("error"));
         
-  }
+//   }
   
 
     return (
         <Container className="recipeCard">
             <Row>
                 {recipeData.map((recipe, index) => {
-                    return <div><ul className="ingredients" key={index}>
+                    return <div key={index}><ul className="ingredients">
                         <h2>{recipe.title}</h2>
                         <img src={recipe.image} alt="recipe" />
                         <h3>Ingredients</h3>
@@ -44,7 +45,7 @@ const RecipeList = ({ recipeData }) => {
                             </li>
                         })}
                         <br/>
-                        <button onMouseEnter={changeRecipeId} onClick={getBakingInstructions} value={recipe.id} className="mt-auto ingButton btn">Baking Instructions</button>
+                        <Link to={`/recipeInstructions/${recipe.id}/${recipe.title}`}><button onMouseEnter={changeRecipeId} value={recipe.id} className="mt-auto ingButton btn">Baking Instructions</button></Link>
                     </ul></div>
                 })}
             </Row>
